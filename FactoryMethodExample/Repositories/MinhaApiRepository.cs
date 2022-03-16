@@ -24,8 +24,8 @@ namespace FactoryMethodExample.Repositories
             object body = new { email, password };
             string method = "post";
 
-            GenericClientApi genericClient = new GenericClientApi(minhaApiFactory, body, endpoint, method, false, null);
-            HttpResponseMessage response = await genericClient.Client();
+            GenericClientApi genericClientApi = new GenericClientApi(minhaApiFactory, body, endpoint, method, false, null);
+            HttpResponseMessage response = await genericClientApi.Client();
 
             if (response.IsSuccessStatusCode)
             {
@@ -40,6 +40,24 @@ namespace FactoryMethodExample.Repositories
             }
 
             return new TokenResponse();
+        }
+
+        public async Task<string> LogoutAsync(string token)
+        {
+            ApiClientFactory minhaApiFactory = new MinhaApiFactory();
+
+            string endpoint = "auth/logout";
+            string method = "post";
+
+            GenericClientApi genericClientApi = new GenericClientApi(minhaApiFactory, null, endpoint, method, true, token);
+            HttpResponseMessage response =  await genericClientApi.Client();
+
+            if (response.IsSuccessStatusCode)
+            {
+                return "Deslogado com sucesso!";
+            }
+
+            return "Ocorreu uma falha ao deslogar!";
         }
     }
 }

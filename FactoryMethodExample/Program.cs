@@ -9,18 +9,24 @@ namespace FactoryMethodExample
     {
         static void Main(string[] args)
         {
+            WriteLine("Acessando API, aguarde um momento...");
+            WriteLine("----------------------------------------");
+
             //var data = Login();
             var data = FindPostById();
+            //var data = Logout();
 
             WriteLine(data.ToString());
+            WriteLine("----------------------------------------");
             ReadLine();
         }
 
         public static TokenResponse Login()
         {
-            MinhaApiRepository minhaApiRepository = new MinhaApiRepository();
+            WriteLine("Efetuando o login, aguarde um momento...");
+            WriteLine("----------------------------------------");
 
-            WriteLine("Acessando API, aguarde um momento...");
+            MinhaApiRepository minhaApiRepository = new MinhaApiRepository();
 
             var email = "fabiomattes2007@gmail.com";
             var password = "Senh@123";
@@ -31,11 +37,27 @@ namespace FactoryMethodExample
             return tokens;
         }
 
+        public static string Logout()
+        {
+            var tokens = Login();
+            var accessToken = tokens.access_token;
+            var refreshToken = tokens.refresh_token;
+
+            MinhaApiRepository minhaApiRepository = new MinhaApiRepository();
+
+            WriteLine("Deslogando, aguarde um momento...");
+            WriteLine("----------------------------------------");
+
+            var logoutTask = minhaApiRepository.LogoutAsync(accessToken);
+
+            string resposta = logoutTask.Result;
+
+            return resposta;
+        }
+
         public static PostResponse FindPostById()
         {
             JsonPlaceHolderRepository jsonPlaceHolderRepository = new JsonPlaceHolderRepository();
-
-            WriteLine("Acessando API, aguarde um momento...");
 
             int id = 1;
 
