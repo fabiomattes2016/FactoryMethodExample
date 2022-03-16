@@ -5,7 +5,7 @@ Factory Method ou Construtor virtual, na ciência da computação, é um padrão
 
 <hr>
 
-<h1 align="left">Estrutura</h1>
+<h3 align="left">Estrutura</h3>
 
 <p align="justify">
 O padrão Factory Method, da forma como foi descrito no livro Design Patterns: Elements of Reusable Object-Oriented Software, contém os seguintes elementos:
