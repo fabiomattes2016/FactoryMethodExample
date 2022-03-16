@@ -6,6 +6,10 @@ namespace FactoryMethodExample.ConcreteCreator.ApiClient
 {
     public class MinhaApiFactory : ApiClientFactory
     {
+        /*
+         * Essa api está disponível em: https://github.com/fabiomattes2016/nestjs-jwt 
+         */
+
         private string _baseUrl;
         private string _headerType;
 
