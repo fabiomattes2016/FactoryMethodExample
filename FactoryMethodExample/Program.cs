@@ -13,8 +13,8 @@ namespace FactoryMethodExample
             WriteLine("----------------------------------------");
 
             //var data = Login();
-            var data = FindPostById();
             //var data = Logout();
+            var data = FindPostById();
 
             WriteLine(data.ToString());
             WriteLine("----------------------------------------");
