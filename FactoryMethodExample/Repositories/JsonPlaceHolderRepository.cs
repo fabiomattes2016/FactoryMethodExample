@@ -16,22 +16,13 @@ namespace FactoryMethodExample.Repositories
 
         public async Task<PostResponse> FindById(int id)
         {
-            string baseUrl;
-            string headerType;
+            ApiClientFactory jsonPlaceHolderFactory = new JsonPlaceHolderApiFactory();
 
-            ApiClientFactory clientApiFactory = new JsonPlaceHolderApiFactory();
-            ApiClientProduct jsonPlaceHolderApiFactory = clientApiFactory.Conexao();
+            string endpoint = $"posts/{id}";
+            string method = "get";
 
-            baseUrl = jsonPlaceHolderApiFactory.BaseUrl;
-            headerType = jsonPlaceHolderApiFactory.HeaderType;
-
-            HttpClient cliente = new HttpClient();
-            cliente.BaseAddress = new Uri(baseUrl);
-            cliente.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue(headerType)
-            );
-
-            HttpResponseMessage response = await cliente.GetAsync($"posts/{id}");
+            GenericClientApi genericClient = new GenericClientApi(jsonPlaceHolderFactory, null, endpoint, method, false, null);
+            HttpResponseMessage response = await genericClient.Client();
 
             if (response.IsSuccessStatusCode)
             {

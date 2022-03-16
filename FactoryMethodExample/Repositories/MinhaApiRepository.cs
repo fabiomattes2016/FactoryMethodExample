@@ -13,38 +13,25 @@ namespace FactoryMethodExample.Repositories
 {
     public class MinhaApiRepository
     {
-        string _baseUrl;
-        string _headerType;
-
-        ApiClientFactory _clientApiFactory = new MinhaApiFactory();
-
         public MinhaApiRepository()
         { }
 
         public async Task<TokenResponse> LoginAsync(string email, string password)
         {
-            ApiClientProduct minhaApiFactory = _clientApiFactory.Conexao();
+            ApiClientFactory minhaApiFactory = new MinhaApiFactory();
 
-            _baseUrl = minhaApiFactory.BaseUrl;
-            _headerType = minhaApiFactory.HeaderType;
+            string endpoint = "auth/local/signin";
+            object body = new { email, password };
+            string method = "post";
 
-            HttpClient cliente = new HttpClient();
-            cliente.BaseAddress = new Uri(_baseUrl);
-            cliente.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue(_headerType)
-            );
-
-            var body = new { email, password };
-            var jsonContent = JsonConvert.SerializeObject(body);
-            var contentString = new StringContent(jsonContent, Encoding.UTF8, minhaApiFactory.HeaderType);
-
-            HttpResponseMessage response = await cliente.PostAsync("auth/local/signin", contentString);
+            GenericClientApi genericClient = new GenericClientApi(minhaApiFactory, body, endpoint, method, false, null);
+            HttpResponseMessage response = await genericClient.Client();
 
             if (response.IsSuccessStatusCode)
             {
-                var tokens = new TokenResponse();
-                var dados = await response.Content.ReadAsStringAsync();
-                var deserializado = JsonConvert.DeserializeObject<TokenResponse>(dados);
+                TokenResponse tokens = new TokenResponse();
+                string dados = await response.Content.ReadAsStringAsync();
+                TokenResponse deserializado = JsonConvert.DeserializeObject<TokenResponse>(dados);
 
                 tokens.access_token = deserializado.access_token;
                 tokens.refresh_token = deserializado.refresh_token;
