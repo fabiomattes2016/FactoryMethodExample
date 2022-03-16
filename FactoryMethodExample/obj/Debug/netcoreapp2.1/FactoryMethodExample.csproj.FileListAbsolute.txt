@@ -3,7 +3,6 @@ C:\Users\fabio.mattes\source\repos\FactoryMethodExample\FactoryMethodExample\bin
 C:\Users\fabio.mattes\source\repos\FactoryMethodExample\FactoryMethodExample\bin\Debug\netcoreapp2.1\FactoryMethodExample.runtimeconfig.dev.json
 C:\Users\fabio.mattes\source\repos\FactoryMethodExample\FactoryMethodExample\bin\Debug\netcoreapp2.1\FactoryMethodExample.dll
 C:\Users\fabio.mattes\source\repos\FactoryMethodExample\FactoryMethodExample\bin\Debug\netcoreapp2.1\FactoryMethodExample.pdb
-C:\Users\fabio.mattes\source\repos\FactoryMethodExample\FactoryMethodExample\obj\Debug\netcoreapp2.1\FactoryMethodExample.csprojAssemblyReference.cache
 C:\Users\fabio.mattes\source\repos\FactoryMethodExample\FactoryMethodExample\obj\Debug\netcoreapp2.1\FactoryMethodExample.csproj.CoreCompileInputs.cache
 C:\Users\fabio.mattes\source\repos\FactoryMethodExample\FactoryMethodExample\obj\Debug\netcoreapp2.1\FactoryMethodExample.AssemblyInfoInputs.cache
 C:\Users\fabio.mattes\source\repos\FactoryMethodExample\FactoryMethodExample\obj\Debug\netcoreapp2.1\FactoryMethodExample.AssemblyInfo.cs
