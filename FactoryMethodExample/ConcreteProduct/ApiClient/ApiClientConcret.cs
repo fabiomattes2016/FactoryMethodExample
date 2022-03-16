@@ -16,15 +16,16 @@ namespace FactoryMethodExample.ConcreteProduct.ApiClient
             this._headerType = headerType;
         }
 
-        public override string BaseUrl
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
+        public override string GetBaseUrl()
+        { return _baseUrl; }
 
-        public override string HeaderType {
-            get { return _headerType; }
-            set { _headerType = value; }
-        }
+        public override void SetBaseUrl(string value)
+        { _baseUrl = value; }
+
+        public override string GetHeaderType()
+        { return _headerType; }
+
+        public override void SetHeaderType(string value)
+        { _headerType = value; }
     }
 }

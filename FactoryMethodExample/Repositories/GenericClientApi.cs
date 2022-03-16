@@ -10,12 +10,12 @@ namespace FactoryMethodExample.Repositories
 {
     public class GenericClientApi
     {
-        private ApiClientFactory _apiClientFactory;
-        private object _body = null;
-        private string _endpoint;
-        private string _method;
-        private bool _isAuthenticated = false;
-        private string _token = null;
+        private readonly ApiClientFactory _apiClientFactory;
+        private readonly object _body = null;
+        private readonly string _endpoint;
+        private readonly string _method;
+        private readonly bool _isAuthenticated = false;
+        private readonly string _token = null;
 
         public GenericClientApi(ApiClientFactory apiClientFactory, object body, string endpoint, string method, bool isAuthenticated, string token)
         {
@@ -35,8 +35,8 @@ namespace FactoryMethodExample.Repositories
             var clientFactory = _apiClientFactory;
             var apiClientProduct = clientFactory.Conexao();
 
-            baseUrl = apiClientProduct.BaseUrl;
-            headerType = apiClientProduct.HeaderType;
+            baseUrl = apiClientProduct.GetBaseUrl();
+            headerType = apiClientProduct.GetHeaderType();
 
             HttpClient cliente = new HttpClient();
             cliente.BaseAddress = new Uri(baseUrl);
@@ -56,7 +56,7 @@ namespace FactoryMethodExample.Repositories
             if (_body != null)
             {
                jsonContent = JsonConvert.SerializeObject(_body);
-               content = new StringContent(jsonContent, Encoding.UTF8, apiClientProduct.HeaderType);
+               content = new StringContent(jsonContent, Encoding.UTF8, apiClientProduct.GetHeaderType());
             }
 
             switch (_method)

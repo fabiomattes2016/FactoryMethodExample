@@ -2,7 +2,10 @@
 {
     public abstract class ApiClientProduct
     {
-        public abstract string BaseUrl { get; set; }
-        public abstract string HeaderType { get; set; }
+        public abstract string GetBaseUrl();
+        public abstract void SetBaseUrl(string value);
+
+        public abstract string GetHeaderType();
+        public abstract void SetHeaderType(string value);
     }
 }

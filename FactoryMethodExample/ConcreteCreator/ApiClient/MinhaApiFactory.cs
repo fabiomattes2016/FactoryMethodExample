@@ -10,8 +10,8 @@ namespace FactoryMethodExample.ConcreteCreator.ApiClient
          * Essa api está disponível em: https://github.com/fabiomattes2016/nestjs-jwt 
          */
 
-        private string _baseUrl;
-        private string _headerType;
+        private readonly string _baseUrl;
+        private readonly string _headerType;
 
         public MinhaApiFactory(
             string baseUrl = "http://localhost:3333/",

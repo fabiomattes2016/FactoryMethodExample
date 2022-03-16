@@ -9,8 +9,8 @@ namespace FactoryMethodExample.ConcreteCreator.JsonPlaceHolder
 {
     class JsonPlaceHolderApiFactory : ApiClientFactory
     {
-        private string _baseUrl;
-        private string _headerType;
+        private readonly string _baseUrl;
+        private readonly string _headerType;
 
         public JsonPlaceHolderApiFactory(
             string baseUrl = "https://jsonplaceholder.typicode.com/",
