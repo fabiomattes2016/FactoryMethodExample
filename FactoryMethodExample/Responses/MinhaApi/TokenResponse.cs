@@ -7,7 +7,7 @@
 
         public override string ToString()
         {
-            return string.Format($"access_token: {access_token}\nrefresh_token:{refresh_token}");
+            return string.Format($"access_token: {access_token}\nrefresh_token: {refresh_token}");
         }
     }
 }

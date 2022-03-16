@@ -1,7 +1,6 @@
 ﻿using FactoryMethodExample.Models;
 using FactoryMethodExample.Repositories;
 using FactoryMethodExample.Responses.JsonPlaceHolder;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace FactoryMethodExample
@@ -10,10 +9,10 @@ namespace FactoryMethodExample
     {
         static void Main(string[] args)
         {
-            //var tokens = Login();
-            var post = FindPostById();
+            //var data = Login();
+            var data = FindPostById();
 
-            WriteLine(post.ToString());
+            WriteLine(data.ToString());
             ReadLine();
         }
 

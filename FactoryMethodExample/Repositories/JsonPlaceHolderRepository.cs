@@ -4,10 +4,8 @@ using FactoryMethodExample.Product.ApiClient;
 using FactoryMethodExample.Responses.JsonPlaceHolder;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FactoryMethodExample.Repositories
