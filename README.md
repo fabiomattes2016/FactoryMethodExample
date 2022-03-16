@@ -21,6 +21,14 @@ O padrão Factory Method, da forma como foi descrito no livro Design Patterns: E
 </ul>
 
 <h3 align="left">Finalidade</h3>
+
 <p align="justify">
 Criar um objeto geralmente requer processos complexos não apropriados para incluir dentro da composição do objeto. A criação do objeto talvez necessite de uma duplicação de código significativa, talvez necessite informações não acessíveis para a composição do objeto, talvez não providencie um grau de abstração suficiente, ou então não faça parte da composição das preocupações do objeto. O padrão de design método fabrica maneja/trata esses problemas definindo um método separado para criação dos objetos, no qual as subclasses possam sobrescrever para especificar o "tipo derivado" do produto que vai ser criado.
 </p>
+
+<h3 align="left">Prós x Contras</h3>
+
+<ul>
+  <li>Prós: Baixo acoplamento, maior flexibilidade e elimina a necessidade de acoplar classes específicas para aplicação em nível de código.</li>
+  <li>Contras: Alto número de classes, podendo sobrecarregar o sistema.</li>
+</ul>
