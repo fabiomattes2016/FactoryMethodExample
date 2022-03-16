@@ -9,8 +9,8 @@ namespace FactoryMethodExample
     {
         static void Main(string[] args)
         {
-            //var data = Login();
-            var data = FindPostById();
+            var data = Login();
+            //var data = FindPostById();
 
             WriteLine(data.ToString());
             ReadLine();

@@ -13,24 +13,25 @@ namespace FactoryMethodExample.Repositories
 {
     public class MinhaApiRepository
     {
+        string _baseUrl;
+        string _headerType;
+
+        ApiClientFactory _clientApiFactory = new MinhaApiFactory();
+
         public MinhaApiRepository()
         { }
 
         public async Task<TokenResponse> LoginAsync(string email, string password)
         {
-            string baseUrl;
-            string headerType;
+            ApiClientProduct minhaApiFactory = _clientApiFactory.Conexao();
 
-            ApiClientFactory clientApiFactory = new MinhaApiFactory();
-            ApiClientProduct minhaApiFactory = clientApiFactory.Conexao();
-
-            baseUrl = minhaApiFactory.BaseUrl;
-            headerType = minhaApiFactory.HeaderType;
+            _baseUrl = minhaApiFactory.BaseUrl;
+            _headerType = minhaApiFactory.HeaderType;
 
             HttpClient cliente = new HttpClient();
-            cliente.BaseAddress = new Uri(baseUrl);
+            cliente.BaseAddress = new Uri(_baseUrl);
             cliente.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue(headerType)
+                new MediaTypeWithQualityHeaderValue(_headerType)
             );
 
             var body = new { email, password };
