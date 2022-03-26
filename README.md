@@ -1,4 +1,4 @@
-<center>[![.NET](https://github.com/fabiomattes2016/FactoryMethodExample/actions/workflows/dotnet.yml/badge.svg)](https://github.com/fabiomattes2016/FactoryMethodExample/actions/workflows/dotnet.yml)</center>
+[![.NET](https://github.com/fabiomattes2016/FactoryMethodExample/actions/workflows/dotnet.yml/badge.svg)](https://github.com/fabiomattes2016/FactoryMethodExample/actions/workflows/dotnet.yml)
 
 <h1 align="center">FactoryMethodExample</h1>
 
